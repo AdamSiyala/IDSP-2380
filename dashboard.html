@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noti</title>
+
+    <style>
+        /* icon bar*/
+        body {
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .icon-bar {
+            width: 100%;
+            background-color: #ffffff;
+            overflow: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .icon-bar a {
+            width: 20%;
+            text-align: center;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
+
+        /* search bar */
+
+        input[type=text] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+
+        /* back button*/
+
+        button#previous {
+            background-color: #f1f1f1;
+            color: #79F2C5;
+            border-radius: 5px;
+            border-style: none;
+            position: relative;
+            float: left;
+            height: 50px;
+            width: 50px;
+            left: 25px;
+            right: 25px;
+            top: 25px;
+        }
+
+        button.profile {
+            background-color: #f1f1f1;
+            color: #79F2C5;
+            border-radius: 5px;
+            border-style: none;
+            position: relative;
+            float: right;
+            height: 50px;
+            width: 50px;
+            left: 25px;
+            right: 25px;
+            top: 25px;
+        }
+
+        /* middle content*/
+
+        /*done*/
+
+        /* bottom nav bar*/
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background: #f1f1f1;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="icon-bar">
+
+        <a href="login.html">
+            <button onclick="goBack()" id="previous">&#8249;
+            </button>
+        </a>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+        <a href="#">
+            <form>
+                <input type="text" name="search" placeholder="Search..">
+            </form>
+        </a>
+
+        <button class="profile" href="profile.html">&#8250;</button>
+
+    </div>
+
+    <div>
+        <p>content</p>
+    </div>
+
+
+    <div class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</body>
+
+</html>
