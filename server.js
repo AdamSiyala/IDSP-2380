@@ -17,13 +17,15 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
+const port = process.env.PORT || 3000;
+
 const config = {
   authRequired: false,
   auth0Logout: true,
   baseURL: `http://localhost:${port}`
 };
 
-const port = process.env.PORT || 3000;
+
 if (process.env.NODE_ENV === 'production') {
   config.baseURL = process.env.BASE_URL
 }
