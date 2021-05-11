@@ -19,14 +19,14 @@ app.use(express.json());
 
 const config = {
   authRequired: false,
-  auth0Logout: true
+  auth0Logout: true,
+  baseURL: `http://localhost:${port}`
 };
 
 const port = process.env.PORT || 3000;
-if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
-  config.baseURL = `https://idsp-noti.herokuapp.com/:${port}`;
+if (process.env.NODE_ENV === 'production') {
+  config.baseURL = process.env.BASE_URL
 }
-
 app.use(auth(config));
 
 // Middleware to make the `user` object available for all views
