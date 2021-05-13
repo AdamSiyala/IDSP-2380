@@ -20,7 +20,6 @@ button.login {
 button.profile {
     margin:0 auto;
     display:block;
-    padding: 14px 30px;
     border: none;
     cursor: pointer;
     font-weight: bold;
