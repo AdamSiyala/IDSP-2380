@@ -7,6 +7,17 @@
 button.login {
     margin:0 auto;
     display:block;
+    background: #79F2C5;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    display:flex;
+    align-items: center;
+    text-align: center;
 }
 a {
     text-decoration: none;
