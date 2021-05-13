@@ -41,5 +41,9 @@ a {
 p {
     text-align: center;
     font-weight: bold;
-    font-size:medium;
+    font-size:large;
+}
+
+@media only screen and (max-width:1200px) {
+    body { font-size: 1em;}
 }
