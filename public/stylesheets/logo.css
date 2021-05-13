@@ -4,7 +4,8 @@
     margin-right: auto;
     width: 20%;
 }
-.login {
+button.login {
     margin:0 auto;
     display:block;
+    text-decoration: none;
 }
