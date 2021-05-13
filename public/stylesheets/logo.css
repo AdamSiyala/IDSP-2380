@@ -34,3 +34,8 @@ a {
         text-decoration: none;
 
 }
+p {
+    text-align: center;
+    font-weight: bold;
+    font-size:medium;
+}
