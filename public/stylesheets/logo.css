@@ -45,5 +45,5 @@ p {
 }
 
 @media only screen and (max-width:1200px) {
-    body { font-size: 1em;}
+    body { font-size: 0.7em;}
 }
