@@ -6,6 +6,8 @@ const path = require('path');
 const router = require('./routes/index');
 const { auth } = require('express-openid-connect');
 
+const database = require('./database')
+
 dotenv.load();
 
 const app = express();
@@ -17,19 +19,16 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-
-const port = process.env.PORT || 3000;
-
 const config = {
   authRequired: false,
-  auth0Logout: true,
-  baseURL: `http://localhost:${port}`
+  auth0Logout: true
 };
 
-
-if (process.env.NODE_ENV === 'production') {
-  config.baseURL = process.env.BASE_URL
+const port = process.env.PORT || 3000;
+if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
+  config.baseURL = `http://localhost:${port}`;
 }
+
 app.use(auth(config));
 
 // Middleware to make the `user` object available for all views
@@ -60,3 +59,20 @@ http.createServer(app)
   .listen(port, () => {
     console.log(`Listening on ${config.baseURL}`);
   });
+
+
+  // Save notes to database 
+
+  const note_id = `/notes/${filename}`
+  database.createNote(note_title, note_body, (error, insertId) => {
+    if (error) {
+      res.send({error: error.message})
+      return
+    }
+    res.send({
+      note_id: insertId,
+      note_title,
+      note_body
+    })
+  })
+
