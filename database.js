@@ -1,20 +1,47 @@
-// import mysql package
-//configure mysql
+const mysql = require('mysql');
 
-let notes = [
-    {
-        id: 1, 
-        content: "some note content",
-        title: "My first note",
-        user_id: "auth 0 user id"
-    }
-]
+const is_heroku = process.env.IS_HEROKU || false;
 
-function getNotesForUser(userId, callback) {
-    // SELECT * 
-    // FROM notes 
-    // WHERE user_id = userId;
+var connection = mysql.createConnection({
+	host     : process.env.MYSQL_HOST || 'us-cdbr-east-03.cleardb.com',
+	user     : process.env.MYSQL_USER || 'b1ab7fb2ee03bc',
+	password : process.env.MYSQL_PASSWORD || 'fb13ec28',
+	database : process.env.MYSQL_DATABASE || 'heroku_03c6ca63989ce29'
+  })
+   
+  connection.connect()
+  
+  function createNote(note_title, note_body, callback) {
+	const query = `
+	INSERT INTO note (note_title, note_body)
+	VALUES (?, ?)
+	`
+  
+	const params = [note_title, note_body]
+  
+	connection.query(query, params, (error, result) => {
+	  if (error) {
+		callback(error)
+		return
+	  }
+	  callback(null, result.insertId)
+	})
+  }
+  exports.createNote = createNote
+  
+  function getNote(callback) {
+	const query = `
+	SELECT * FROM note
+	`
+  
+	connection.query(query, (error, results) => {
+	  if (error) {
+		callback(error)
+		return
+	  }
+	  callback(null, results)
+	})
+  }
+  exports.getNote = getNote
 
-    callback(null, notes)
-}
-exports.getNotesForUser = getNotesForUser
+		
