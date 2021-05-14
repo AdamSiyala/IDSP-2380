@@ -10,7 +10,10 @@
 <body>
     <img src="/img/noti-logo.svg" alt="note-logo" class="logo" />
 <% if (locals.isAuthenticated) { %>
-    <p class="p">You are logged in. </p>  <a href="/profile" class="underline"> <button class="profile">Profile</button></a>
+    <h3 class="text-4xl mb-4">Welcome, <%= user.given_name %></h1>
+    <a href="/profile" class="underline"> <button class="profile">Profile</button></a>
+    <a href="/dashboard" class="underline"> <button class="profile">Dashboard</button></a>
+
 <% } else { %>
     <p class="p">You are not logged in. </p> <a href="/login"><button class="login"> Login</button></a>
 <% } %>
