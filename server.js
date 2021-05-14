@@ -62,8 +62,34 @@ http.createServer(app)
 
 
   // Save notes to database 
+const s3 = require('./s3')
 
-  const note_id = `/notes/${filename}`
+app.use(express.static('build'))
+
+app.get('/notes/:filename', (req, res) => {
+  const filename = req.params.filename
+  const readStream = s3.getFileStream(filename)
+  readStream.pipe(res)
+})
+
+app.get('/notes', (req, res) => {
+  database.getNote((error, posts) => {
+    if (error) {
+      res.send({ error: error.message })
+      return
+    }
+    res.send({ notes })
+  })
+
+})
+
+app.post('/notes', upload.single('note'), async (req, res) => {
+  const { filename, path } = req.file
+  const note_body = req.body.note_body
+
+  await s3.uploadFile(req.file)
+
+  const note_body = `/notes/${filename}`
   database.createNote(note_title, note_body, (error, insertId) => {
     if (error) {
       res.send({error: error.message})
