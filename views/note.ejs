@@ -116,7 +116,17 @@ body {
   border: 2px solid var(--bittersweet);
   color: var(--bittersweet);
 }
-
+.back-btn {
+  background: #ff6f59;
+    border: 2px solid #ff6f59;
+    color: #fff;
+    padding: 0.55rem 0;
+    width: 120px;
+    border-radius: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s
+}
 @media (min-width: 992px) {
   .note-list {
     display: grid;
@@ -131,7 +141,7 @@ body {
 </style>
 <body>
     <div class="note">
-        <a href="/dashboard"><button>Back</button></a>
+        <a href="/dashboard"><button class="back-btn">Back</button></a>
         <h2>Notes</h2>
         <div class="note-input">
           <h3>Add A New Note</h3>
