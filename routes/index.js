@@ -16,7 +16,12 @@ router.get('/profile', requiresAuth(), function (req, res, next) {
 });
 router.get('/dashboard', requiresAuth(), function (req, res, next) {
   res.render('dashboard', {
-    title: 'Profile page'
+    title: 'Dashboard page'
+  });
+});
+router.get('/note', requiresAuth(), function (req, res, next) {
+  res.render('note', {
+    title: 'Note page'
   });
 });
 
