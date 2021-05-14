@@ -8,19 +8,32 @@
 </head>
 
 <style>
-    nav ul {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center
+    }
+    .navbar li {
         display: inline-block;
-        list-style-type: none;
-        background-color:gray;
+    }
+    .navbar a {
+        text-decoration:none;
+        display: block;
+        text-align: center;
     }
 </style>
 <body>
-    <nav>
+    <div class="navbar">
         <ul>
-            <li><img src="/img/calendar-icon.svg" alt=""> </li>
-            <li><img src="/img/notes-icon.svg" alt=""> </li>
-            <li><img src="/img/todo-icon.svg" alt=""> </li>
-            <li><img src="/img/folder-icon.svg" alt=""> </li>
+            <li><a href="/calendar"><img src="/img/calendar-icon.svg" alt=""></a></li>
+            <li><a href="/notes"><img src="/img/notes-icon.svg" alt=""></a></li>
+            <li><a href="/todo"><img src="/img/todo-icon.svg" alt=""></a></li>
+            <li><a href="/folder"><img src="/img/folder-icon.svg" alt=""></a></li>
         </ul>
     </nav>   
 </body>
