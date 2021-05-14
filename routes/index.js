@@ -14,5 +14,10 @@ router.get('/profile', requiresAuth(), function (req, res, next) {
     title: 'Profile page'
   });
 });
+router.get('/dashboard', requiresAuth(), function (req, res, next) {
+  res.render('dashboard', {
+    title: 'Profile page'
+  });
+});
 
 module.exports = router;
