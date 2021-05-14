@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-    img {
-        margin-left: auto;
-        margin-right: auto;
+    body {
+        margin: 0;
+        padding: 0;
+        background: #ccc;
+        font-family: Arial;
+    }
+    .navbar {
+        background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
     }
     .navbar ul {
         list-style: none;
+        background: #663366;
+        padding: 0;
+        margin: 0;
+        text-align: center;
     }
     .navbar li {
-        display:inline-block;
+      display: inline-block;
     }
+    .navbar a {
+        text-decoration: none;
+        color: #fff;
+        width: 100px;
+        display: block;
+        padding: 25px 20px;
+        font-size: 15px;
+        text-align: center;
+    }
+    .navbar a:hover {
+        background: orange;
+    }
+
 </style>
+</head>
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="/calendar"><img src="/img/calendar-icon.svg" alt=""></a></li>
-            <li><a href="/notes"><img src="/img/notes-icon.svg" alt=""></a></li>
-            <li><a href="/todo"><img src="/img/todo-icon.svg" alt=""></a></li>
-            <li><a href="/folder"><img src="/img/folder-icon.svg" alt=""></a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Notes</a></li>
+            <li><a href="#">To-do</a></li>
+            <li><a href="#">Files</a></li>
         </ul>
-    </nav>   
+    </div>
 </body>
 </html>

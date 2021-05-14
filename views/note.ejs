@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="note">
+        <h2>Note Taking App</h2>
+        <div class="note-input">
+          <h3>Add A New Note</h3>
+          <div class="note-wrapper">
+            <form action="/notes" enctype="multipart/form-data" method="POST">
+                <input type="text" id = "note-title" placeholder="Title of your note" name="note_title">
+                <textarea  id="note-content" name="note_body" id="" cols="30" placeholder="Write your note here...." rows="5"></textarea>
+                <button id="add-note-btn" class="btn" type = "button" >
+                <span><i class="fas fa-plus"></i></span>
+                Add Note
+                </button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="note-list">
+          
+        </div>
+        
+        <button type="button" class = "btn" id= "delete-all-btn">
+          <span><i class="fas fa-trash"></i></span>
+          Delete All
+        </button>
+      </div>
+</body>
+</html>
