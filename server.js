@@ -50,8 +50,8 @@ app.get('/notes', async (req, res) => {
       res.render("error", { message: error.message })
       return;
     }
-    res.render("note", { notes });
-    //res.send(notes);
+    //res.render("note", { notes });
+    res.send(notes);
   })
 })
 
