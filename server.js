@@ -1,4 +1,6 @@
 const dotenv = require('dotenv');
+dotenv.load();
+
 const express = require('express');
 const http = require('http');
 const logger = require('morgan');
@@ -6,7 +8,8 @@ const path = require('path');
 const router = require('./routes/index');
 const { auth } = require('express-openid-connect');
 
-dotenv.load();
+const {createNote, getNotes} =  require('./service/noteService');
+
 
 const app = express();
 
@@ -40,6 +43,34 @@ app.use(function (req, res, next) {
 
 app.use('/', router);
 
+app.get('/notes', async (req, res) => {
+
+  getNotes((error, notes) => {
+    if (error) {
+      res.render("error", { message: error.message })
+      return;
+    }
+    res.render("note", { notes });
+    //res.send(notes);
+  })
+})
+
+app.post('/notes', async (req, res) => {
+
+  const note_body = req.body.note_body
+  const note_title = req.body.note_title
+
+  // const {note_body, note_title} = req.body;
+
+  createNote(note_title, note_body, (error, result) => {
+    if (error) {
+      res.render("error", { message: error.message })
+      return;
+    }
+    res.redirect("/dashboard");
+  })
+})
+
 // Catch 404 and forward to error handler
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
@@ -55,6 +86,8 @@ app.use(function (err, req, res, next) {
     error: process.env.NODE_ENV !== 'production' ? err : {}
   });
 });
+
+
 
 http.createServer(app)
   .listen(port, () => {
