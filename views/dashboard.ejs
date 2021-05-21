@@ -1,108 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial;
-    }
-    .navbar {
-        background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-    }
-    .navbar ul {
-        list-style: none;
-        background: #b9b8b9;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
-    .navbar li {
-      display: inline-block;
-    }
-    .navbar a {
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        width: 100px;
-        display: block;
-        padding: 25px 20px;
-        font-size: 15px;
-        text-align: center;
-    }
-    .navbar a:hover {
-        background: #EB5DFF;
-    }
-    .back-arrow {
-        position: absolute;
-        left: 34.5%;
-        height: 120px;
-        width: 120px;
-    }
-    .top-bar {
-        position: absolute;
-        left: 39.5%;
-        top: 2.5%;
-    }
-    button {  
-    display: table;
-    margin: auto;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3em;
-    padding: 0.8em 2.6em;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 25%);
-    border-radius: 20px;
-    color: #F8F3F9;
-    background: red;
-    
-    }
-    .container {
-        height: 600px;
-        position: relative;
-    }
-
-    .center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    }
-    a {
-        text-decoration: none;
-
-    }
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<style>
+    .arrow {
+    display: inline;
+}
+.profile {
+    display: inline;
+    position: absolute;
+    right: 0%;
+}
+.top-bar img {
+    height: 150px;
+    width: 150px;
+}
+@media screen and (max-width:1200px) {
+    .top-bar img {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width:900px) {
+    .top-bar img {
+        height: 75px;
+        width: 75px;
+    }
+}
+@media screen and (max-width:600px) {
+    .top-bar img {
+        height: 50px;
+        width: 50px;
+    }
+}
+/**/
+body {
+margin: 0 0 55px 0;
+}
+
+.nav {
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 75px;
+box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+background-color: #ffffff;
+display: flex;
+overflow-x: auto;
+}
+
+.nav__link {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+min-width: 50px;
+overflow: hidden;
+white-space: nowrap;
+font-family: sans-serif;
+font-size: 13px;
+color: #444444;
+text-decoration: none;
+-webkit-tap-highlight-color: transparent;
+transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link:hover {
+background-color: #eeeeee;
+}
+
+.nav__link--active {
+color: #009578;
+}
+
+.nav__icon {
+font-size: 18px;
+}
+.folder__icon {
+height: 80px;
+}
+.nav__text {
+font-weight: bold;
+}
+h3 {
+text-align: center;
+}
+</style>
 <body>
-    <div class="topbar">
-        <img src="/img/back-arrow.svg" alt="" class="back-arrow">
-        <img src="/img/top-bar.svg" alt="" class="top-bar">
+    <div class="top-bar">
+        <img src="/img/arrow.svg" alt="" class="arrow">
+        <img src="/img/Profile.svg" alt="" class="profile">
     </div>
-    <br>
-    <div class="container">
-        <div class="center">
-            <h3>Your schedule</h3>
+    <div class="schedule">
+        <h3>Your schedule</h3>
+        <img src="/img/plus.svg" alt="">
+    </div>
+        <div class="todo">
             <h3>Your to-do list</h3>
+            <img src="/img/plus.svg" alt="">
         </div>
-    </div>
-          <a href="/note"><button> Create a note  </button></a>
-    <div class="navbar">
-        <ul>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="/note">Notes</a></li>
-            <li><a href="#">To-do</a></li>
-            <li><a href="#">Files</a></li>
-        </ul>
-    </div>
+        
+        <nav class="nav">
+            <a href="#" class="nav__link">
+                <img src="/img/calendar.svg" alt="" class="nav__icon">
+                <span class="nav__text">Calendar</span>
+            </a>
+            <a href="/note" class="nav__link">
+                <img src="/img/notes.svg" alt="" class="nav__icon">
+                <span class="nav__text">Note</span>
+            </a>
+            <a href="#" class="nav__link">
+                <img src="/img/todo.svg" alt="" class="nav__icon">
+                <span class="nav__text">To-do</span>
+            </a>
+            <a href="#" class="nav__link">
+                <img src="/img/folder.svg" alt="" class="nav__icon folder__icon">
+            </a>
+        </nav>
 </body>
 </html>
