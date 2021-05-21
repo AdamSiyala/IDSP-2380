@@ -24,5 +24,11 @@ router.get('/note', requiresAuth(), function (req, res, next) {
     title: 'Note page'
   });
 });
+router.get('/calendar', requiresAuth(), function (req, res, next) {
+  res.render('calendar', {
+    title: 'Calendar page'
+  });
+});
+
 
 module.exports = router;
