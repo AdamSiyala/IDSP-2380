@@ -23,7 +23,31 @@ body {
   height:100vh;
   
 }
-
+.arrow {
+    display: inline;
+}
+.arrow img {
+    height: 150px;
+    width: 150px;
+}
+@media screen and (max-width:1200px) {
+    .arrow img {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width:900px) {
+    .arrow img {
+        height: 75px;
+        width: 75px;
+    }
+}
+@media screen and (max-width:600px) {
+    .arrow img {
+        height: 50px;
+        width: 50px;
+    }
+}
 .note {
   max-width: 1000px;
   margin: 3rem auto;
@@ -186,7 +210,9 @@ body {
 </style>
 <body>
     <div class="note">
-        <a href="/dashboard"><button class="back-btn">Back</button></a>
+        <a href="/dashboard">
+        <img src="/img/arrow.svg" alt="" class="arrow">
+      </a>
         <h2>Notes</h2>
         <div class="note-input">
           <h3>Add A New Note</h3>
