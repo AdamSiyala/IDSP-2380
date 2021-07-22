@@ -10,6 +10,29 @@
   justify-content: center;
   background-color: #FFFCFF;
 }
+.arrow {
+    display: inline;
+    height: 150px;
+    width: 150px;
+}
+@media screen and (max-width:1200px) {
+    .arrow {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width:900px) {
+    .arrow {
+        height: 75px;
+        width: 75px;
+    }
+}
+@media screen and (max-width:600px) {
+    .arrow {
+        height: 50px;
+        width: 50px;
+    }
+}
 button {
   width: 75px;
   cursor: pointer;
@@ -219,11 +242,9 @@ button {
 }
   </style>
   <body>
-    <div class="top-bar">
       <a href="/dashboard">
         <img src="/img/arrow.svg" alt="" class="arrow">
       </a>
-    </div>
     <div id="container">
       
       <div id="header">
